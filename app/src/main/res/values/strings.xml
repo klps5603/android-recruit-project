@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">android-recruit-project</string>
+    <string name="app_name">HaHow Demo</string>
+    <string name="subject">課程學習</string>
 </resources>
