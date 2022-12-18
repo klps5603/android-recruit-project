@@ -6,6 +6,9 @@ data class SubjectItem(
     @SerializedName("successCriteria")
     val successCriteria: SuccessCriteria,
 
+    @SerializedName("numSoldTickets")
+    val numSoldTickets: Int,
+
     @SerializedName("status")
     val status: String,
 
@@ -14,6 +17,9 @@ data class SubjectItem(
 
     @SerializedName("coverImageUrl")
     val coverImageUrl: String,
+
+    @SerializedName("totalVideoLengthInSeconds")
+    val totalVideoLengthInSeconds: Int,
 
     @SerializedName("title")
     val title: String

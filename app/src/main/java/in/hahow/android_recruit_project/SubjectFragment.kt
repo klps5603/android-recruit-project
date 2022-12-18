@@ -31,7 +31,7 @@ class SubjectFragment : BaseFragment(R.layout.fragment_subject) {
     /**
      * 在此實作讀取 json file
      * 取得 json 資料後，解析並轉型成 list
-     * 最後交由 viewModel 處理，刷新畫面
+     * 最後交由 viewModel 處理資料，刷新畫面
      */
     override fun loadJsonFile() {
         context?.let { context ->

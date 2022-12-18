@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Hahow Demo</string>
     <string name="subject">課程</string>
+    <string name="num_sold_tickets_proportion">%d / %d 人</string>
+    <string name="count_down_day">倒數%d天</string>
+    <string name="count_down_hour">倒數%d小時</string>
+    <string name="count_down_min">倒數%d分</string>
 </resources>

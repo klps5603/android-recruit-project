@@ -16,15 +16,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:src="@mipmap/ic_launcher"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.3" />
+            app:layout_constraintWidth_percent="0.3"
+            tools:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/status_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="3dp"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@id/cover_image_view"
             app:layout_constraintEnd_toEndOf="@id/cover_image_view"
@@ -43,15 +46,40 @@
                 android:id="@+id/title_text_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="RyuuuTV看動漫看日劇，零到N4道地說日文" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/num_sold_tickets_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="bottom"
+                app:layout_constraintBottom_toTopOf="@id/num_sold_tickets_progress_bar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_text_view"
+                tools:text="0%" />
+
+            <ProgressBar
+                android:id="@+id/num_sold_tickets_progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/title_text_view" />
+                android:progressBackgroundTint="@color/black"
+                android:progressTint="@color/yellow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/proposal_due_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="倒數13天" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -59,7 +87,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="5dp"
         android:background="@color/gray" />
 
 </LinearLayout>
