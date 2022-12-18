@@ -1,5 +1,6 @@
 package `in`.hahow.android_recruit_project
 
+import `in`.hahow.android_recruit_project.adapter.SubjectAdapter
 import `in`.hahow.android_recruit_project.base.BaseFragment
 import `in`.hahow.android_recruit_project.base.baseActivity
 import `in`.hahow.android_recruit_project.data.SubjectData
@@ -16,6 +17,7 @@ class SubjectFragment : BaseFragment(R.layout.fragment_subject) {
 
     private val viewModel: SubjectViewModel by fragmentViewModel()
     private lateinit var binding: FragmentSubjectBinding
+    private val subjectAdapter = SubjectAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,9 +47,8 @@ class SubjectFragment : BaseFragment(R.layout.fragment_subject) {
      */
     override fun invalidate() {
         withState(viewModel) {
-            binding.apply {
-
-            }
+            subjectAdapter.list = it.list
+            binding.subjectRecyclerView.adapter = subjectAdapter
         }
     }
 

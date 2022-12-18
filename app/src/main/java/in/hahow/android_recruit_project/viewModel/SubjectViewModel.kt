@@ -8,7 +8,7 @@ data class SubjectState(
     val list: List<SubjectItem> = listOf()
 ) : MvRxState
 
-class SubjectViewModel(state: SubjectState) : BaseMvRxViewModel<SubjectState>(state, true) {
+class SubjectViewModel(state: SubjectState) : BaseMvRxViewModel<SubjectState>(state, false) {
 
     fun setList(list: List<SubjectItem>) {
         setState {
