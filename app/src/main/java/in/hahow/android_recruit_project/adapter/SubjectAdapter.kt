@@ -43,11 +43,21 @@ class SubjectAdapter : RecyclerView.Adapter<SubjectAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         fun setNumSoldTicketsTextView(numSoldTickets: Int, successNumSoldTickets: Int) {
-            holder.binding.numSoldTicketsTextView.text = String.format(
-                context.getString(
-                    R.string.num_sold_tickets_proportion
-                ), numSoldTickets, successNumSoldTickets
-            )
+            if (numSoldTickets >= successNumSoldTickets) {
+                val overTarget =
+                    ((numSoldTickets.toDouble() / successNumSoldTickets.toDouble()) * 100).toInt()
+                holder.binding.numSoldTicketsTextView.text = String.format(
+                    context.getString(
+                        R.string.over_target
+                    ), "$overTarget%"
+                )
+            } else {
+                holder.binding.numSoldTicketsTextView.text = String.format(
+                    context.getString(
+                        R.string.num_sold_tickets_proportion
+                    ), numSoldTickets, successNumSoldTickets
+                )
+            }
         }
 
         fun setNumSoldTicketsProgressBar(numSoldTickets: Int, successNumSoldTickets: Int) {
