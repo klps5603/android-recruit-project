@@ -5,7 +5,9 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <!-- Customize your theme here. -->
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">12sp</item>
+
+        <!-- 固定字型大小，避免跑版 -->
+        <item name="android:textSize">12dp</item>
 
     </style>
 </resources>

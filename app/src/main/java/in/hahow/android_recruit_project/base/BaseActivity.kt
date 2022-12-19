@@ -6,7 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 
 /**
- * 一個底層 Activity，提供給所有 Activity 繼承
+ * 底層 Activity，提供給所有　Activity（實作實際畫面）繼承
  */
 abstract class BaseActivity(@LayoutRes val layoutRes: Int) : AppCompatActivity() {
 

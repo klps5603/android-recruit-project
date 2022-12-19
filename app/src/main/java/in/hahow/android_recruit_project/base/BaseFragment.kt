@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import com.airbnb.mvrx.BaseMvRxFragment
 
+/**
+ * 底層 Fragment，提供給所有 Fragment（實作實際畫面）繼承
+ */
 abstract class BaseFragment(@LayoutRes val layoutRes: Int) : BaseMvRxFragment() {
 
     /**

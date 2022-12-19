@@ -22,6 +22,7 @@ class SubjectFragment : BaseFragment(R.layout.fragment_subject) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSubjectBinding.bind(view)
+        binding.subjectRecyclerView.adapter = subjectAdapter
 
         baseActivity()?.let {
             it.title = getString(R.string.subject)
@@ -37,7 +38,7 @@ class SubjectFragment : BaseFragment(R.layout.fragment_subject) {
         context?.let { context ->
             Util().getTextFromAssets(context, "data.json")?.let {
                 val data = JsonUtil().convertJsonToData<SubjectData>(it)
-                viewModel.setList(data.subjectList)
+                viewModel.setSubjectList(data.subjectList)
             }
         }
     }
@@ -47,8 +48,7 @@ class SubjectFragment : BaseFragment(R.layout.fragment_subject) {
      */
     override fun invalidate() {
         withState(viewModel) {
-            subjectAdapter.list = it.list
-            binding.subjectRecyclerView.adapter = subjectAdapter
+            subjectAdapter.list = it.subjectList
         }
     }
 

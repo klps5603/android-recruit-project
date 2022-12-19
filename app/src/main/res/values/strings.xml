@@ -3,8 +3,8 @@
     <string name="subject">課程</string>
     <string name="num_sold_tickets_proportion">%d / %d 人</string>
     <string name="count_down_day">倒數 %d 天</string>
-    <string name="count_down_hour">倒數 %d 小時</string>
-    <string name="count_down_min">倒數 %d 分</string>
     <string name="exit_check">再按一次返回以退出APP</string>
     <string name="over_target">達標 %s </string>
+    <string name="due_soon">即將截止</string>
+    <string name="video_time">片長 %d 分</string>
 </resources>
