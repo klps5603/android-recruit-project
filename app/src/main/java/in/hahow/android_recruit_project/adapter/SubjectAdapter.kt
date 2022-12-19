@@ -3,6 +3,7 @@ package `in`.hahow.android_recruit_project.adapter
 import `in`.hahow.android_recruit_project.R
 import `in`.hahow.android_recruit_project.data.SubjectItem
 import `in`.hahow.android_recruit_project.databinding.ItemSubjectBinding
+import `in`.hahow.android_recruit_project.enum.Status
 import `in`.hahow.android_recruit_project.utils.DatePattern
 import `in`.hahow.android_recruit_project.utils.convertStringToDate
 import android.content.Context
@@ -18,13 +19,6 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 class SubjectAdapter : RecyclerView.Adapter<SubjectAdapter.ViewHolder>() {
-
-    enum class Status(val text: String) {
-        NONE(""),
-        INCUBATING("募資中"),
-        PUBLISHED("已開課"),
-        SUCCESS("募資成功")
-    }
 
     private lateinit var context: Context
 
@@ -45,7 +39,8 @@ class SubjectAdapter : RecyclerView.Adapter<SubjectAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         /**
-         * status 為募資中、募資完成
+         * @param [numSoldTickets]：目前募資人數
+         * @param [successNumSoldTickets]：目標募資人數
          * 目前募資人數 大於（含）目標募資人數時，顯示達標 XX%
          * 目前募資人數 小於 目標募資人數時，顯示 XX / XX 人
          */
@@ -71,7 +66,8 @@ class SubjectAdapter : RecyclerView.Adapter<SubjectAdapter.ViewHolder>() {
         }
 
         /**
-         * status 為募資中、募資完成
+         * @param [numSoldTickets]：目前募資人數
+         * @param [successNumSoldTickets]：目標募資人數
          * 以目前募資人數、目標募資人數，計算達標進度條
          */
         fun setNumSoldTicketsProgressBar(numSoldTickets: Int, successNumSoldTickets: Int) {
@@ -93,9 +89,15 @@ class SubjectAdapter : RecyclerView.Adapter<SubjectAdapter.ViewHolder>() {
             holder.binding.proposalDueTimeTextView.apply {
                 if (status == Status.PUBLISHED) {
                     val totalVideoLengthInSeconds = subjectItem.totalVideoLengthInSeconds
-                    val totalVideoLengthInMin = totalVideoLengthInSeconds / 60
-                    text =
-                        String.format(context.getString(R.string.video_time), totalVideoLengthInMin)
+                    if (totalVideoLengthInSeconds == 0) {
+                        text = ""
+                    } else {
+                        val totalVideoLengthInMin = totalVideoLengthInSeconds / 60
+                        text = String.format(
+                            context.getString(R.string.video_time),
+                            totalVideoLengthInMin
+                        )
+                    }
                 } else {
                     val proposalDueDate =
                         subjectItem.proposalDueTime.convertStringToDate(DatePattern.yyyyMMddTmmhhss)

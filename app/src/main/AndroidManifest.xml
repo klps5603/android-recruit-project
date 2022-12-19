@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidrecruitproject">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"> <!--螢幕固定直向-->
             <intent-filter>

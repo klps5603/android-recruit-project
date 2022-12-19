@@ -1,5 +1,6 @@
-package `in`.hahow.android_recruit_project
+package `in`.hahow.android_recruit_project.fragment
 
+import `in`.hahow.android_recruit_project.R
 import `in`.hahow.android_recruit_project.adapter.SubjectAdapter
 import `in`.hahow.android_recruit_project.base.BaseFragment
 import `in`.hahow.android_recruit_project.base.baseActivity
@@ -12,6 +13,8 @@ import android.os.Bundle
 import android.view.View
 import com.airbnb.mvrx.fragmentViewModel
 import com.airbnb.mvrx.withState
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.Tab
 
 class SubjectFragment : BaseFragment(R.layout.fragment_subject) {
 
@@ -19,10 +22,27 @@ class SubjectFragment : BaseFragment(R.layout.fragment_subject) {
     private lateinit var binding: FragmentSubjectBinding
     private val subjectAdapter = SubjectAdapter()
 
+    private val onTabSelectedListener = object : TabLayout.OnTabSelectedListener {
+        override fun onTabSelected(tab: Tab?) {
+            val text = tab?.text as String
+            viewModel.filterSubjectList(text)
+        }
+
+        override fun onTabUnselected(tab: Tab?) {
+
+        }
+
+        override fun onTabReselected(tab: Tab?) {
+
+        }
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSubjectBinding.bind(view)
         binding.subjectRecyclerView.adapter = subjectAdapter
+        binding.statusTabLayout.addOnTabSelectedListener(onTabSelectedListener)
 
         baseActivity()?.let {
             it.title = getString(R.string.subject)
@@ -45,10 +65,11 @@ class SubjectFragment : BaseFragment(R.layout.fragment_subject) {
 
     /**
      * 當 viewModel state 中任一資料變更時，都會呼叫此 method，用以刷新畫面
+     * 沒有任何資料變更時，不會呼叫此 method
      */
     override fun invalidate() {
         withState(viewModel) {
-            subjectAdapter.list = it.subjectList
+            subjectAdapter.list = it.filterSubjectList
         }
     }
 

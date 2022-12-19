@@ -7,4 +7,8 @@
     <string name="over_target">達標 %s </string>
     <string name="due_soon">即將截止</string>
     <string name="video_time">片長 %d 分</string>
+    <string name="all">全部</string>
+    <string name="incubating">募資中</string>
+    <string name="published">已開課</string>
+    <string name="success">募資成功</string>
 </resources>

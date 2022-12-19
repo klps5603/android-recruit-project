@@ -1,6 +1,8 @@
-package `in`.hahow.android_recruit_project
+package `in`.hahow.android_recruit_project.activity
 
+import `in`.hahow.android_recruit_project.R
 import `in`.hahow.android_recruit_project.base.BaseActivity
+import `in`.hahow.android_recruit_project.fragment.SubjectFragment
 import android.os.Bundle
 import android.widget.Toast
 import java.util.*
