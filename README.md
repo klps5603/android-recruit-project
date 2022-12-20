@@ -34,6 +34,10 @@
 - successCriteria > numSoldTickets：目標募資人數
 - numSoldTickets：目前募資人數
 - status：募資狀態（INCUBATING：募資中、PUBLISHED：已開課、SUCCESS：募資完成）
+- proposalDueTime：到期日期
+- totalVideoLengthInSeconds：影片長度
+- title：課程名稱
+- coverImageUrl：圖片 url
 
 ## 設計想法
 
