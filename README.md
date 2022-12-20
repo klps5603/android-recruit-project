@@ -24,12 +24,18 @@
 - 請下載或 fork Hahow Android Engineer 面試題目初始專案。
 - 請將成果上傳至 GitHub 並直接提供 repo 連結。
 
-## APP簡介
-
-- 這是一款簡單展示 Hahow 的小APP，其設計主要參考 Google Play 上的 Hohaw APP
-
 ## 操作教學
 
 - 進入首頁會看到所有課程
-- 可以點選上方的分類頁籤（全部、募資中、已開課、募資完成），篩選對應的課程狀態
+- 可以點選上方的分類頁籤（全部、募資中、已開課、募資完成），篩選對應的課程
 - 滑動列表來瀏覽課程內容（課程圖片、募資狀態、課程名稱、募資進度、倒數天數、影片長度）
+
+## data.json 欄位說明
+- successCriteria > numSoldTickets：目標募資人數
+- numSoldTickets：目前募資人數
+- status：募資狀態（INCUBATING：募資中、PUBLISHED：已開課、SUCCESS：募資完成）
+
+## 設計想法
+
+- 課程資料來源為 aseets 中的 data.json
+- 
