@@ -38,3 +38,9 @@
 - totalVideoLengthInSeconds：影片長度
 - title：課程名稱
 - coverImageUrl：圖片 url
+
+## Library
+
+- MvRx：開發框架
+- GSON：解析 json
+- Gilde：讀取圖片 
